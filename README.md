@@ -1,5 +1,27 @@
 # Payload Alpha
-departure point: Payload Custom Server Example
+
+## Getting started
+### local setup
+Prerequisites: local nodejs, yarn and mongodb (tested with node 16, mongodb-community 7)
+
+```bash
+cp .env.local.example .env
+yarn && yarn dev
+```
+
+### docker-compose
+
+```bash
+cp .env.docker-compose.example .env
+docker-compose up -d && docker-compose logs -f
+```
+
+## next steps
+- [x] local setup
+- [x] docker-compose setup
+- [ ] deploy on clevercloud
+
+## departure point: Payload Custom Server Example
 
 To get to the setup we took the following steps, which also serve as the most simple local setup
 
@@ -13,9 +35,6 @@ mongodb running via
 ```bash
 brew services start mongodb-community@7.0
 ```
-
-next steps
-- [ ] docker-compose setup
 
 ## Original readme from example below
 
