@@ -15,7 +15,7 @@ brew services start mongodb-community@7.0
 ```
 
 next steps
--[ ] docker-compose setup
+- [ ] docker-compose setup
 
 ## Original readme from example below
 
