@@ -1,14 +1,18 @@
 # Payload Alpha
 departure point: Payload Custom Server Example
 
-To get to the setup we took the following steps
+To get to the setup we took the following steps, which also serve as the most simple local setup
 
 ```bash
 npx degit payloadcms/payload/examples/custom-server
 cp .env.example .env
 yarn && yarn dev
 ```
-if you have a mongodb running locally, this should in principle be enough.
+If you have a mongodb running locally, the app will start (localhost:3000 or localhost:3000/admin). I verified this with payload 2.0, using node 16,
+mongodb running via
+```bash
+brew services start mongodb-community@7.0
+```
 
 next steps
 -[ ] docker-compose setup
