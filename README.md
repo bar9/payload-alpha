@@ -4,7 +4,7 @@ departure point: Payload Custom Server Example
 To get to the setup we took the following steps, which also serve as the most simple local setup
 
 ```bash
-npx degit payloadcms/payload/examples/custom-server
+npx degit payloadcms/payload/examples/custom-server --instead you can clone this repository
 cp .env.example .env
 yarn && yarn dev
 ```
