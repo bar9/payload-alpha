@@ -9,6 +9,7 @@ import { RichText } from './_components/RichText'
 import classes from './page.module.scss'
 
 export default async function Home() {
+  'use client'
   const payload = await getPayloadClient()
   const { docs } = await payload.find({
     collection: 'pages',
