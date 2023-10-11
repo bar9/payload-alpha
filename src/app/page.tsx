@@ -2,14 +2,15 @@ import React, { Fragment } from 'react'
 import { notFound } from 'next/navigation'
 
 import { getPayloadClient } from '../getPayload'
-import { Page } from './../payload-types'
+import { Page } from '../payload-types'
 import { Gutter } from './_components/Gutter'
 import { RichText } from './_components/RichText'
 
 import classes from './page.module.scss'
 
+export const dynamic = 'force-dynamic'
+
 export default async function Home() {
-  'use server'
   const payload = await getPayloadClient()
   const { docs } = await payload.find({
     collection: 'pages',
