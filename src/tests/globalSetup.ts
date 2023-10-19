@@ -1,40 +1,45 @@
-import { resolve } from 'path';
-import payload from 'payload';
-import express from 'express';
-import testCredentials from './credentials';
+import express from 'express'
+import payload from 'payload'
+import dotenv from 'dotenv'
 
-require('dotenv').config({
-  path: resolve(__dirname, '../../.env'),
-});
+import testCredentials from './credentials'
+import path from "path";
 
-const app = express();
+const app = express()
 
-const globalSetup = async () => {
+dotenv.config({
+  path: path.resolve(__dirname, '../../.env'),
+})
+
+const globalSetup = async (): Promise<void> => {
   await payload.init({
     secret: process.env.PAYLOAD_SECRET,
     express: app,
-  });
+  })
 
   app.listen(process.env.PORT, async () => {
-    console.log(`Express is now listening for incoming connections on port ${process.env.PORT}.`);
-  });
+    // console.log(`Express is now listening for incoming connections on port ${process.env.PORT}.`)
+  })
 
-  const response = await fetch(`${process.env.PAYLOAD_PUBLIC_SERVER_URL}/api/users/first-register`, {
-    body: JSON.stringify({
-      email: testCredentials.email,
-      password: testCredentials.password,
-    }),
-    headers: {
-      'Content-Type': 'application/json',
+  const response = await fetch(
+    `${process.env.PAYLOAD_PUBLIC_SERVER_URL}/api/users/first-register`,
+    {
+      body: JSON.stringify({
+        email: testCredentials.email,
+        password: testCredentials.password,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'post',
     },
-    method: 'post',
-  });
+  )
 
-  const data = await response.json();
+  const data = await response.json()
 
   if (!data.user || !data.user.token) {
-    throw new Error('Failed to register first user');
+    throw new Error('Failed to register first user')
   }
-};
+}
 
-export default globalSetup;
+export default globalSetup

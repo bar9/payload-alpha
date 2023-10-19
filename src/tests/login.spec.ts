@@ -1,5 +1,5 @@
-import { User } from '../payload-types';
-import testCredentials from './credentials';
+import type { User } from '../payload-types'
+import testCredentials from './credentials'
 
 describe('Users', () => {
   it('should allow a user to log in', async () => {
@@ -15,8 +15,8 @@ describe('Users', () => {
         email: testCredentials.email,
         password: testCredentials.password,
       }),
-    }).then((res) => res.json());
+    }).then(res => res.json())
 
-    expect(result.token).toBeDefined();
-  });
-});
+    expect(result.token).toBeDefined()
+  })
+})
